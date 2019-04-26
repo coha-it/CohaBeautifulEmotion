@@ -1,0 +1,27 @@
+
+.page-wrap {
+    overflow: hidden;
+}
+
+.emotion--wrapper {
+    position: relative;
+    overflow: visible;
+
+    .coha--color-hack {
+        top: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: inherit;
+        pointer-events: none;
+        overflow: hidden;
+        
+        &.before {
+            left: 100%;
+        }
+        &.after {
+            right: 100%;
+        }
+    }
+
+}
