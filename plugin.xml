@@ -5,11 +5,16 @@
     <label lang="en">Beautiful Emotions</label>
     <label lang="de">Schöne Einkaufswelten (Beautiful Emotion)</label>
 
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <copyright>(c) Corporate Happiness</copyright>
     <license>proprietary</license>
     <link>https://www.corporate-happiness.de</link>
     <author>Alexander Bachschmid</author>
+
+    <changelog version="1.1.0">
+        <changes lang="de">Neue Freitextfelder und Attribute für Globale CSS-Regeln implementiert;</changes>
+        <changes lang="en">Implemented new Freetextfields/Freitextfelder and Attributes/Attribute for global CSS-rules;</changes>
+    </changelog>
 
     <changelog version="1.1.0">
         <changes lang="de">"AOS - Animation On Scroll" Implementiert;</changes>

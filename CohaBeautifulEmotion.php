@@ -28,7 +28,7 @@ class CohaBeautifulEmotion extends Plugin
         ]);
 
         $service->update('s_emotion_attributes', 'coha_classes', 'string', [
-            'label' => 'CSS-Classes',
+            'label' => 'CSS - Classes',
             'supportText' => 'For Example (Without Quotation Marks): "grey-coloured blue-custom-class container" etc.',
             'helpText' => 'This will be the Content inside the Element\'s HTML-Inline-Class alias "CSS-Tag"',
             'translatable' => true,
@@ -38,7 +38,7 @@ class CohaBeautifulEmotion extends Plugin
         ]);
 
         $service->update('s_emotion_attributes', 'coha_inline_css', 'string', [
-            'label' => 'Inline CSS',
+            'label' => 'CSS - Inline',
             'supportText' => 'For Example (Without Quotation Marks): "color: red; text-transform: uppercase;" etc.',
             'helpText' => 'This will be the Content inside the Element\'s HTML-Inline-CSS alias "Style-Tag"',
             'translatable' => true,
@@ -47,6 +47,26 @@ class CohaBeautifulEmotion extends Plugin
             'custom' => true,
         ]);
 
+        $service->update('s_emotion_attributes', 'coha_css_rule_global', 'text', [
+            'label' => 'CSS - Rule (global)',
+            'supportText' => 'For Example (Without Quotation Marks): "body {color: blue;}". Global for the Whole Page',
+            'helpText' => 'But it will be Global on the Whole Page / Body.',
+            'translatable' => true,
+            'displayInBackend' => true,
+            'position' => 29,
+            'custom' => true,
+        ]);
+
+
+        $service->update('s_emotion_attributes', 'coha_html_tags', 'string', [
+            'label' => 'HTML-Tags',
+            'supportText' => 'For Example (Without The Single Quotation Marks): \' data-attribute="52x" data-length="100" \'.',
+            'helpText' => 'It will simply insert the HTML-Tags to the Emotion-Element Container. Seperated by Spacings.',
+            'translatable' => true,
+            'displayInBackend' => true,
+            'position' => 100,
+            'custom' => true,
+        ]);
     }
 
     // On Activation
@@ -61,23 +81,27 @@ class CohaBeautifulEmotion extends Plugin
         $service->delete('s_emotion_attributes', 'coha_background_colour');
         $service->delete('s_emotion_attributes', 'coha_classes');
         $service->delete('s_emotion_attributes', 'coha_inline_css');
+        $service->delete('s_emotion_attributes', 'coha_css_rule_global');
     }
 
     public function addLessFiles(){
-      return new LessDefinition(
-         [],
-         [
-             __DIR__ . '/Resources/views/frontend/_public/src/css/aos/aos.css',
-             __DIR__ . '/Resources/views/frontend/_public/src/less/beautiful-emotion.less',
-         ]
-      );
+        return new LessDefinition(
+            [],
+            [
+                __DIR__ . '/Resources/views/frontend/_public/src/css/aos/aos.css',
+                //__DIR__ . '/Resources/views/frontend/_public/src/css/css3-animate-it/animations.css',
+                __DIR__ . '/Resources/views/frontend/_public/src/less/beautiful-emotion.less',
+            ]
+        );
     }
 
     public function onCollectJavascriptFiles()
     {
-        $jsFiles = array(
-            $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos.js'
-        );
+        $jsFiles = [
+            $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos.js',
+            $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos-init.js'
+            //$this->getPath() . '/Resources/views/frontend/_public/src/js/css3-animate-it/css3-animate-it.js',
+        ];
         return new ArrayCollection($jsFiles);
     }
 

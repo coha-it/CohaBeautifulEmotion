@@ -9,6 +9,11 @@
     {if $emotion.attribute.coha_background_colour}
         <div class="coha--color-hack after" style="background-color: {$emotion.attribute.coha_background_colour}"></div>
     {/if}
+
+    {* Global Rule *}
+    {if $emotion.attribute.coha_css_rule_global}
+        <style type="text/css">{$emotion.attribute.coha_css_rule_global}</style>
+    {/if}
 {/block}
 
 {* CSS-Classes *}
@@ -18,4 +23,5 @@
 {block name="widgets/emotion/index/attributes"}
     {$smarty.block.parent}
     style="{if $emotion.attribute.coha_background_colour} background-color: {$emotion.attribute.coha_background_colour}; {/if} {if $emotion.attribute.coha_inline_css} {$emotion.attribute.coha_inline_css} {/if} "
+    {if $emotion.attribute.coha_html_tags} {$emotion.attribute.coha_html_tags} {/if}
 {/block}
