@@ -17,15 +17,22 @@ class CohaBeautifulEmotion extends Plugin
     {
         $service = $this->container->get('shopware_attribute.crud_service');
 
-        $service->update('s_emotion_attributes', 'coha_font_colour', 'string', [
-            'label' => 'Font Colour',
+        // $service->update('s_emotion_attributes', 'coha_inherit', 'boolean', [
+        //     'label' => 'Inherit from Master',
+        //     'supportText' => 'If set, the Settings from Master-Landingpage will be inherit. If not, your following Settings down below will be used.',
+        //     'helpText' => 'If set, the Settings from Master-Landingpage will be inherit. If not, your following Settings down below will be used.',
+        //     'translatable' => true,            'displayInBackend' => true,            'position' => 18,            'custom' => true,
+        // ]);
+
+        $service->update('s_emotion_attributes', 'coha_font_color', 'string', [
+            'label' => 'Font Color',
             'supportText' => 'For Example (Without Quotation Marks): Insert "#333" for grey. You can also add "rgba(241,30,21)" for red etc.',
             'helpText' => 'It will be rendered as Inline-CSS with the CSS-Sytax "background-color:".',
             'translatable' => true,            'displayInBackend' => true,            'position' => 19,            'custom' => true,
         ]);
 
-        $service->update('s_emotion_attributes', 'coha_background_colour', 'string', [
-            'label' => 'Background Colour',
+        $service->update('s_emotion_attributes', 'coha_background_color', 'string', [
+            'label' => 'Background Color',
             'supportText' => 'For Example (Without Quotation Marks): Insert "#333" for grey. You can also add "rgba(241,30,21)" for red etc.',
             'helpText' => 'It will be rendered as Inline-CSS with the CSS-Sytax "background-color:".',
             'translatable' => true,            'displayInBackend' => true,            'position' => 20,            'custom' => true,
@@ -54,30 +61,50 @@ class CohaBeautifulEmotion extends Plugin
 
         $service->update('s_emotion_attributes', 'coha_background_repeat', 'string', [
             'label' => 'Background Repeat',
-            'supportText' => 'For Example (Without Quotation Marks): Insert "no-repeat". Possible options: repeat repeat-x repeat-y no-repeat initial inherit',
+            'supportText' => 'For Example (Without Quotation Marks): Insert "no-repeat". Possible options: repeat|repeat-x|repeat-y|no-repeat|initial|inherit',
             'helpText' => 'Most of the time no-repeat will be used',
             'translatable' => true,            'displayInBackend' => true,            'position' => 24,            'custom' => true,
         ]);
 
+        $service->update('s_emotion_attributes', 'coha_background_attachment', 'string', [
+            'label' => 'Background Attachment',
+            'supportText' => 'For Example (Without Quotation Marks): Insert "no-repeat". Possible options: scroll|fixed|local|initial|inherit',
+            'translatable' => true,            'displayInBackend' => true,            'position' => 25,            'custom' => true,
+        ]);
+
+        $service->update('s_emotion_attributes', 'coha_width', 'string', [
+            'label' => 'Width',
+            'supportText' => 'For Example (Without Quotation Marks): Insert "100%".  Possible options: 100%, 50%, 100vw, 50vw, 50vh etc.',
+            'helpText' => 'It will be rendered as Inline-CSS with the CSS-Sytax "width:".',
+            'translatable' => true,            'displayInBackend' => true,            'position' => 26,            'custom' => true,
+        ]);
+
+        $service->update('s_emotion_attributes', 'coha_max_width', 'string', [
+            'label' => 'Max-Width',
+            'supportText' => 'For Example (Without Quotation Marks): Insert "1500px".  Possible options: 100%, 50%, 1000px, 100vw, 50vw, 50vh etc.',
+            'helpText' => 'It will be rendered as Inline-CSS with the CSS-Sytax "max-width:".',
+            'translatable' => true,            'displayInBackend' => true,            'position' => 27,            'custom' => true,
+        ]);
+
         $service->update('s_emotion_attributes', 'coha_classes', 'string', [
             'label' => 'CSS - Classes',
-            'supportText' => 'For Example (Without Quotation Marks): "grey-coloured blue-custom-class container" etc.',
+            'supportText' => 'For Example (Without Quotation Marks): "grey-colored blue-custom-class container" etc.',
             'helpText' => 'This will be the Content inside the Element\'s HTML-Inline-Class alias "CSS-Tag"',
-            'translatable' => true,            'displayInBackend' => true,            'position' => 26,            'custom' => true,
+            'translatable' => true,            'displayInBackend' => true,            'position' => 30,            'custom' => true,
         ]);
 
         $service->update('s_emotion_attributes', 'coha_inline_css', 'string', [
             'label' => 'CSS - Inline',
             'supportText' => 'For Example (Without Quotation Marks): "color: red; text-transform: uppercase;" etc.',
             'helpText' => 'This will be the Content inside the Element\'s HTML-Inline-CSS alias "Style-Tag"',
-            'translatable' => true,            'displayInBackend' => true,            'position' => 27,            'custom' => true,
+            'translatable' => true,            'displayInBackend' => true,            'position' => 31,            'custom' => true,
         ]);
 
         $service->update('s_emotion_attributes', 'coha_css_rule_global', 'text', [
             'label' => 'CSS - Rule (global)',
             'supportText' => 'For Example (Without Quotation Marks): "body {color: blue;}". Global for the Whole Page',
             'helpText' => 'But it will be Global on the Whole Page / Body.',
-            'translatable' => true,            'displayInBackend' => true,            'position' => 29,            'custom' => true,
+            'translatable' => true,            'displayInBackend' => true,            'position' => 32,            'custom' => true,
         ]);
 
 
@@ -98,15 +125,20 @@ class CohaBeautifulEmotion extends Plugin
     public function uninstall(UninstallContext $context)
     {
         $service = $this->container->get('shopware_attribute.crud_service');
-        $service->delete('s_emotion_attributes', 'coha_font_colour');
-        $service->delete('s_emotion_attributes', 'coha_background_colour');
+        //$service->delete('s_emotion_attributes', 'coha_inherit');
+        $service->delete('s_emotion_attributes', 'coha_font_color');
+        $service->delete('s_emotion_attributes', 'coha_background_color');
         $service->delete('s_emotion_attributes', 'coha_background_img_url');
         $service->delete('s_emotion_attributes', 'coha_background_size');
         $service->delete('s_emotion_attributes', 'coha_background_position');
         $service->delete('s_emotion_attributes', 'coha_background_repeat');
+        $service->delete('s_emotion_attributes', 'coha_background_attachment');
+        $service->delete('s_emotion_attributes', 'coha_width');
+        $service->delete('s_emotion_attributes', 'coha_max_width');
         $service->delete('s_emotion_attributes', 'coha_classes');
         $service->delete('s_emotion_attributes', 'coha_inline_css');
         $service->delete('s_emotion_attributes', 'coha_css_rule_global');
+        $service->delete('s_emotion_attributes', 'coha_html_tags');
     }
 
     public function addLessFiles(){

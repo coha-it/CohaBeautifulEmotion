@@ -2,13 +2,13 @@
 
 {* Emotion *}
 {block name="widgets/emotion/index/emotion"}
-    {if $emotion.attribute.coha_background_colour}
-        <div class="coha--color-hack before" style="background-color: {$emotion.attribute.coha_background_colour};"></div>
-    {/if}
+    {*if $emotion.attribute.coha_background_color}
+        <div class="coha--color-hack before" style="background-color: {$emotion.attribute.coha_background_color};"></div>
+    {/if*}
     {$smarty.block.parent}
-    {if $emotion.attribute.coha_background_colour}
-        <div class="coha--color-hack after" style="background-color: {$emotion.attribute.coha_background_colour};"></div>
-    {/if}
+    {*if $emotion.attribute.coha_background_color}
+        <div class="coha--color-hack after" style="background-color: {$emotion.attribute.coha_background_color};"></div>
+    {/if*}
 
     {* Global Rule *}
     {if $emotion.attribute.coha_css_rule_global}
@@ -22,14 +22,29 @@
 {* HTML-Attributes *}
 {block name="widgets/emotion/index/attributes"}
     {$smarty.block.parent}
+
+
+    {$coha_background_color          = $emotion.attribute.coha_background_color}
+    {$coha_font_color                = $emotion.attribute.coha_font_color}
+    {$coha_background_img_url        = $emotion.attribute.coha_background_img_url}
+    {$coha_background_size           = $emotion.attribute.coha_background_size}
+    {$coha_background_position       = $emotion.attribute.coha_background_position}
+    {$coha_background_repeat         = $emotion.attribute.coha_background_repeat}
+    {$coha_background_attachment     = $emotion.attribute.coha_background_attachment}
+    {$coha_width                     = $emotion.attribute.coha_width}
+    {$coha_max_width                 = $emotion.attribute.coha_max_width}
+
     style="{*
         Inline-CSS Special Rules inside style=""
-    *}{if $emotion.attribute.coha_background_colour} background-color: {$emotion.attribute.coha_background_colour}; {/if} {*
-    *} {if $emotion.attribute.coha_font_colour} color: {$emotion.attribute.coha_font_colour}; {/if} {*
-    *} {if $emotion.attribute.coha_background_img_url} background-image: url({$emotion.attribute.coha_background_img_url}); {/if} {*
-    *} {if $emotion.attribute.coha_background_size} background-size: {$emotion.attribute.coha_background_size}; {/if} {*
-    *} {if $emotion.attribute.coha_background_position} background-position: {$emotion.attribute.coha_background_position}; {/if} {*
-    *} {if $emotion.attribute.coha_background_repeat} background-repeat: {$emotion.attribute.coha_background_repeat}; {/if} {*
+    *} {if $coha_background_color}        background-color:       {$coha_background_color}       ;  {/if} {*
+    *} {if $coha_font_color}              color:                  {$coha_font_color}             ;  {/if} {*
+    *} {if $coha_background_img_url}      background-image:   url({$coha_background_img_url})    ;  {/if} {*
+    *} {if $coha_background_size}         background-size:        {$coha_background_size}        ;  {/if} {*
+    *} {if $coha_background_position}     background-position:    {$coha_background_position}    ;  {/if} {*
+    *} {if $coha_background_repeat}       background-repeat:      {$coha_background_repeat}      ;  {/if} {*
+    *} {if $coha_background_attachment}   background-attachment:  {$coha_background_attachment}  ;  {/if} {*
+    *} {if $coha_width}                   width:                  {$coha_width}                  ;  {/if} {*
+    *} {if $coha_max_width}               max-width:              {$coha_max_width}              ;  {/if}{*
         Pure Inline-CSS:
     *} {if $emotion.attribute.coha_inline_css} {$emotion.attribute.coha_inline_css}; {/if}"{*
         HTML-Tags:

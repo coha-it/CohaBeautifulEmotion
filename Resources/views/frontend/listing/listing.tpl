@@ -8,7 +8,7 @@
                 {$fullscreen = true}
             {/if}
 
-            <div class="emotion--wrapper"
+            <div class="emotion--wrapper test1"
                  data-controllerUrl="{url module=widgets controller=emotion action=index emotionId=$emotion.id controllerName=$Controller}"
                  data-availableDevices="{$emotion.devices}">
             </div>
