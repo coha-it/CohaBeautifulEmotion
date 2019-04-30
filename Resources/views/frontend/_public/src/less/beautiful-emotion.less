@@ -55,3 +55,28 @@
 
 
 }
+
+
+
+// SVGS and Images / Absolute and Relative
+.svgs,
+.imgs,
+.images {
+    .relative {
+        position: relative;
+    }
+}
+
+svg,
+.svg,
+img,
+.img,
+.image {
+    &.absolute {
+        position: absolute;
+    }
+}
+
+svg.inn.absolute {
+    animation: rotate5deg 10s infinite alternate-reverse;
+}
