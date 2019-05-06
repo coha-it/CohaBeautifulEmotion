@@ -28,21 +28,24 @@
     .emotion--container {
         margin: auto;
         margin-left: auto !important;
+        min-height: 500px;
+
         &::after,
         &::before {
             content: "";
             position: absolute;
-            width: 100%;
+            width: 100vw;
             height: 100%;
             top: 0;
             background-color: inherit;
             pointer-events: none;
             overflow: hidden;
             display: block;
+            z-index: 0;
         } 
 
         &::before {
-            right: -1px;
+            left: 1px;
             transform: translateX(-100%);
         }
 
@@ -50,6 +53,66 @@
             right: 1px;
             transform: translateX(100%);
         }
+    }
+
+    .emotion--element {
+
+        &.no-padding,
+        &.nopadding {padding: 0 !important;}
+
+        &.no-margin,
+        &.nomargin {margin: 0 !important;}
+
+        &.background {
+            width: 100%;
+            position: absolute;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+
+            .emotion--banner {
+                position: absolute;
+            }
+
+            &.top{
+                &,
+                .emotion--banner {
+                    top: 0;
+                }
+            }
+
+            &.bottom{
+                &,
+                .emotion--banner {
+                    bottom: 0;
+                }
+            }
+
+            &.left{
+                &,
+                .emotion--banner {
+                    left: 0;
+                }
+            }
+
+            &.right{
+                &,
+                .emotion--banner {
+                    right: 0;
+                }
+            }
+
+            &.center{
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                .emotion--banner {
+                    position: static;
+                }
+            }
+
+        }
+
     }
 
 
@@ -74,6 +137,21 @@ img,
 .image {
     &.absolute {
         position: absolute;
+    }
+
+}
+
+.svg {
+
+    .emotion--banner .banner--content {
+        max-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+    }
+
+    &.bottom img {
+        position: absolute;
+        bottom: 0;
     }
 }
 
