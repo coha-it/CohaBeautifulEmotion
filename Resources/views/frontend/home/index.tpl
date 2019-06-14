@@ -1,6 +1,5 @@
 {extends file='parent:frontend/home/index.tpl'}
 
-
 {* Promotion *}
 {*block name='frontend_home_index_promotions'}
     {if $hasCustomerStreamEmotion}
@@ -18,4 +17,3 @@
         </div>
     {/if}
 {/block*}
-

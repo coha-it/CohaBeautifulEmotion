@@ -1,61 +1,86 @@
 
+/* HR and Headings */
+hr {
+    border-style: solid;
+    border-width: 0px 0px 2px 0;
+    border-color: rgba(255, 255, 255, 0.085);
+}
+
+hr + h1,
+hr + h2,
+hr + h3,
+hr + h4 {
+    margin-top: 0.5em;
+}
+
+
+/* Page-Wrap */
 .page-wrap {
     overflow: hidden;
 }
 
+
+/* Emotion Wrapper */
 .emotion--wrapper {
     position: relative;
     overflow: visible;
 
-    .coha--color-hack {
-        top: 0;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: inherit;
-        pointer-events: none;
-        overflow: hidden;
-        
-        &.before {
-            left: 100%;
+    .emotion--container-wrapper-outer {
+        margin: 0 auto;
+        position: relative;
+
+        .emotion--container-wrapper {
+            margin: 0 auto;
         }
-        &.after {
-            right: 100%;
+
+        .coha--color-hack {
+            top: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: inherit;
+            pointer-events: none;
+            overflow: hidden;
+            
+            &.before {
+                right: 100%;
+            }
+            &.after {
+                left: 100%;
+            }
         }
     }
-
 
     .emotion--container {
         margin: auto;
         margin-left: auto !important;
-        position: static;
 
         /*min-height: 500px;*/
 
 
-        &::after,
-        &::before {
-            content: "";
-            position: absolute;
-            width: 100vw;
-            height: 100%;
-            top: 0;
-            background-color: inherit;
-            pointer-events: none;
-            overflow: hidden;
-            display: block;
-            z-index: 0;
-        } 
+        // &::after,
+        // &::before {
+        //     content: "";
+        //     position: absolute;
+        //     width: 100vw;
+        //     height: 100%;
+        //     top: 0;
+        //     background-color: inherit;
+        //     pointer-events: none;
+        //     overflow: hidden;
+        //     display: block;
+        //     z-index: 0;
+        // } 
 
-        &::before {
-            left: 1px;
-            transform: translateX(-100%);
-        }
+        // &::before {
+        //     left: 1px;
+        //     transform: translateX(-100%);
+        // }
 
-        &::after {
-            right: 1px;
-            transform: translateX(100%);
-        }
+        // &::after {
+        //     right: 1px;
+        //     transform: translateX(100%);
+        // }
     }
 
     .emotion--element {
@@ -74,8 +99,9 @@
             pointer-events: none;
             overflow: hidden;
 
-            .emotion--banner {
-                position: absolute;
+            &.zoom-150 { 
+                transform: scale(1.5);
+                &.bottom { transform-origin: bottom; }
             }
 
             &.top{
@@ -115,14 +141,27 @@
                 }
             }
 
+            .emotion--banner {
+                position: absolute;
+            }
+
+        }
+
+        &.svg {
+		    padding: 0 !important;
         }
 
     }
-
-
-
 }
 
+
+// Only on Landingpages
+.is--ctl-campaign {
+	.emotion--wrapper .emotion--container {
+		position: static;
+        overflow: hidden;
+	}
+}
 
 
 // SVGS and Images / Absolute and Relative
@@ -142,11 +181,9 @@ img,
     &.absolute {
         position: absolute;
     }
-
 }
 
 .svg {
-
     .emotion--banner .banner--content {
         max-width: 100%;
         min-height: 100%;
