@@ -28,7 +28,10 @@
     .emotion--container {
         margin: auto;
         margin-left: auto !important;
+        position: static;
+
         /*min-height: 500px;*/
+
 
         &::after,
         &::before {
@@ -69,6 +72,7 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
+            overflow: hidden;
 
             .emotion--banner {
                 position: absolute;
