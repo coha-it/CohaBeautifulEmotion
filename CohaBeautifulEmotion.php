@@ -150,8 +150,8 @@ class CohaBeautifulEmotion extends Plugin
 
                 //__DIR__ . '/Resources/views/frontend/_public/src/css/css3-animate-it/animations.css',
                 
-                // Owl Carousel 2
-                __DIR__ . '/Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2/dist/assets/owl.carousel.min.css',
+                // Owl Carousel 2 - disabled
+                // __DIR__ . '/Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2/dist/assets/owl.carousel.min.css',
 
                 // Beautiful Emotions
                 __DIR__ . '/Resources/views/frontend/_public/src/less/beautiful-emotion.less',
@@ -168,8 +168,8 @@ class CohaBeautifulEmotion extends Plugin
 
             //$this->getPath() . '/Resources/views/frontend/_public/src/js/css3-animate-it/css3-animate-it.js',
 
-            // Owl Carousel 2
-            $this->getPath() . '/Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2/dist/owl.carousel.js',
+            // Owl Carousel 2 - disabled
+            // $this->getPath() . '/Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2/dist/owl.carousel.js',
         ];
         return new ArrayCollection($jsFiles);
     }
