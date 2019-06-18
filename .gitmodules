@@ -1,0 +1,3 @@
+[submodule "Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2"]
+	path = Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2
+	url = https://github.com/OwlCarousel2/OwlCarousel2.git

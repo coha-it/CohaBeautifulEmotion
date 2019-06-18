@@ -145,8 +145,15 @@ class CohaBeautifulEmotion extends Plugin
         return new LessDefinition(
             [],
             [
+                // AOS Animate/Animation on Scroll
                 __DIR__ . '/Resources/views/frontend/_public/src/css/aos/aos.css',
+
                 //__DIR__ . '/Resources/views/frontend/_public/src/css/css3-animate-it/animations.css',
+                
+                // Owl Carousel 2
+                __DIR__ . '/Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2/dist/assets/owl.carousel.min.css',
+
+                // Beautiful Emotions
                 __DIR__ . '/Resources/views/frontend/_public/src/less/beautiful-emotion.less',
             ]
         );
@@ -155,9 +162,14 @@ class CohaBeautifulEmotion extends Plugin
     public function onCollectJavascriptFiles()
     {
         $jsFiles = [
+            // Animation on Scroll 
             $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos.js',
-            $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos-init.js'
+            $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos-init.js',
+
             //$this->getPath() . '/Resources/views/frontend/_public/src/js/css3-animate-it/css3-animate-it.js',
+
+            // Owl Carousel 2
+            $this->getPath() . '/Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2/dist/owl.carousel.js',
         ];
         return new ArrayCollection($jsFiles);
     }
