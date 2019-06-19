@@ -107,6 +107,11 @@ hr + h4 {
                 &.bottom { transform-origin: bottom; }
             }
 
+            &.zoom-125 { 
+                transform: scale(1.25);
+                &.bottom { transform-origin: bottom; }
+            }
+
             &.top{
                 &,
                 .emotion--banner {
@@ -143,6 +148,13 @@ hr + h4 {
                     position: static;
                 }
             }
+
+            &.stretching .emotion--banner,
+            &.stretching .emotion--banner .banner--content,
+            &.stretching .emotion--banner .banner--content .banner--image-src {
+                height: 100%;
+            }
+
 
             .emotion--banner {
                 position: absolute;

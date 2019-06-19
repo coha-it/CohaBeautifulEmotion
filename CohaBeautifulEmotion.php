@@ -162,7 +162,10 @@ class CohaBeautifulEmotion extends Plugin
     public function onCollectJavascriptFiles()
     {
         $jsFiles = [
-            // Animation on Scroll 
+            // Parallax.JS
+            $this->getPath() . '/Resources/views/frontend/_public/src/parallax-js/parallax/dist/parallax.min.js',
+
+            // Animation on Scroll
             $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos.js',
             $this->getPath() . '/Resources/views/frontend/_public/src/js/aos/aos-init.js',
 
