@@ -173,6 +173,13 @@ class CohaBeautifulEmotion extends Plugin
 
             // Owl Carousel 2 - disabled
             // $this->getPath() . '/Resources/views/frontend/_public/src/owl-carousel/OwlCarousel2/dist/owl.carousel.js',
+
+            // ScrollMagic
+            $this->getPath() . '/Resources/views/frontend/_public/src/scrollmagic/assets/js/lib/greensock/TweenMax.min.js',
+            $this->getPath() . '/Resources/views/frontend/_public/src/scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
+            $this->getPath() . '/Resources/views/frontend/_public/src/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
+            // $this->getPath() . '/Resources/views/frontend/_public/src/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js',
+
         ];
         return new ArrayCollection($jsFiles);
     }
