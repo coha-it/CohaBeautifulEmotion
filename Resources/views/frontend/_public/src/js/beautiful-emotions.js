@@ -1,8 +1,20 @@
+function playVideo() {
+	$('video[autoplay]').each(function(i, video) {
+	   var $vid = $(video);
+	   var vid = $vid[0];
+	   $vid.off('ended');
+	   if(vid.load) {
+	   		vid.load();
+	   }
+	   if(vid.play) {
+	   		vid.play();
+	   }
+	});
+}
 
 // ON Document Ready
 jQuery(document).ready(function ($)
 {
-	console.log('now 123');
 
 	$(document).on("click", 'a[href*="#"]', function(e) { 
 		e.preventDefault();
@@ -13,6 +25,12 @@ jQuery(document).ready(function ($)
 		}, 900, 'swing', function() {
 			window.location.hash = target;
 		});
+	});
+
+	// On Ajax-Complete
+	$( document ).ajaxComplete(function()
+	{
+		playVideo();
 	});
 
 });
