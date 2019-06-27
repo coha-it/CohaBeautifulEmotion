@@ -181,6 +181,9 @@ class CohaBeautifulEmotion extends Plugin
             // $this->getPath() . '/Resources/views/frontend/_public/src/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js',
             $this->getPath() . '/Resources/views/frontend/_public/src/scrollmagic/scrollmagic-init.js',
 
+            // Custom JS
+            $this->getPath() . '/Resources/views/frontend/_public/src/js/beautiful-emotions.js',
+
         ];
         return new ArrayCollection($jsFiles);
     }

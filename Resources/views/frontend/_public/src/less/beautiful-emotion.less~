@@ -19,12 +19,6 @@ hr + h4 {
     overflow: hidden;
 }
 
-/* i-Red Dot */
-i.red-dot-dot,
-em.red-dot-dot {
-    font-family: Lato;font-size: 1.85em; line-height: 0; color: #e95323; position: absolute; bottom: 0px; right: 100%; transform: rotate(180deg); margin: 0.25em .03em;
-}
-
 
 /* Emotion Wrapper */
 .emotion--wrapper {
@@ -102,13 +96,6 @@ em.red-dot-dot {
 
 	&.background-video {
 		.video--play-btn {display: none;}
-
-		.video--text {
-			display: flex;
-    			align-items: center;
-    			justify-content: center;
-    			flex-direction: column;
-		}
 	}
 
         &.background {
