@@ -3,10 +3,10 @@ function playVideo() {
 	   var $vid = $(video);
 	   var vid = $vid[0];
 	   $vid.off('ended');
-	   if(vid.load) {
+	   if(typeof vid.load === "function") {
 	   		vid.load();
 	   }
-	   if(vid.play) {
+	   if(typeof vid.play === "function") {
 	   		vid.play();
 	   }
 	});
@@ -17,20 +17,33 @@ jQuery(document).ready(function ($)
 {
 
 	$(document).on("click", 'a[href*="#"]', function(e) { 
-		e.preventDefault();
 		var target = this.hash;
 		var $target = $(target);
-		$('html, body').stop().animate({
-			'scrollTop': $target.offset().top
-		}, 900, 'swing', function() {
+
+		// if the Target is a display-only-target
+		if($target.hasClass('only-target')) 
+		{
+			//e.preventDefault();
 			window.location.hash = target;
-		});
+			$('html, body').stop().animate({
+				'scrollTop': $target.offset().top
+			}, 700, 'swing');
+		} 
+		else {
+			e.preventDefault();
+			$('html, body').stop().animate({
+				'scrollTop': $target.offset().top
+			}, 900, 'swing', function() {
+				window.location.hash = target;
+			});
+		}
+
 	});
 
 	// On Ajax-Complete
 	$( document ).ajaxComplete(function()
 	{
-		playVideo();
+		// playVideo();
 	});
 
 });

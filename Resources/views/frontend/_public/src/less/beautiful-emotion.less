@@ -13,17 +13,55 @@ hr + h4 {
     margin-top: 0.5em;
 }
 
+/* Naked Table */
+.table--naked {
+    table {
+        &,
+        tr {
+            &,
+            td,
+            th {
+                background: transparent !important;
+                border-color: transparent !important;
+                color: inherit;
+                color: unset;
+            }
+        }
+    }
+}
+
+.table--no-padding {
+    table {}
+}
 
 /* Page-Wrap */
 .page-wrap {
     overflow: hidden;
 }
 
+/* Only Target */
+.only-target:not(:target) {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+// Display Flex for Emotion-Rows
+.emotion--row {
+    display: flex;
+}
 
 /* Emotion Wrapper */
 .emotion--wrapper {
     position: relative;
     overflow: visible;
+
+    &.is--fullscreen {
+        overflow: hidden;
+    }
 
     .emotion--container-wrapper-outer {
         margin: 0 auto;
@@ -50,6 +88,16 @@ hr + h4 {
             &.after {
                 left: 100%;
                 transform: translateX(-2px);
+            }
+        }
+    }
+
+    .emotion--container {
+
+        &.hidden {
+            display: none;
+            &:target {
+                display: inherit;
             }
         }
     }
@@ -88,25 +136,43 @@ hr + h4 {
 
     .emotion--element {
 
+        &.valign-wrapper {
+            .emotion--html {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                .html--content {
+                    width: 100%;
+                }
+            }
+        }
+
         &.no-padding,
         &.nopadding {padding: 0 !important;}
 
         &.no-margin,
         &.nomargin {margin: 0 !important;}
 
-	&.background-video {
-		.video--play-btn {display: none;}
+    	&.background-video {
+    		.video--play-btn {display: none;}
 
-        &.center,
-        &.centered {
-            .video--text {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
+            .emotion--video {
+                // Emotion Video
+                .video--cover {z-index: 0;}
+                .video--play-icon {display: none;}
             }
-        }
-	}
+
+            &.center,
+            &.centered {
+                .video--text {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+            }
+    	}
 
         &.background {
             width: 100%;
@@ -178,6 +244,15 @@ hr + h4 {
 
         &.svg {
 		    padding: 0 !important;
+        }
+
+
+        &.height .emotion--banner .banner--content {
+            height: 100% !important;
+            img {
+                width: auto !important;
+                height: 100%;
+            }
         }
 
     }
