@@ -20,22 +20,27 @@ jQuery(document).ready(function ($)
 		var target = this.hash;
 		var $target = $(target);
 
-		// if the Target is a display-only-target
-		if($target.hasClass('only-target')) 
-		{
-			//e.preventDefault();
-			window.location.hash = target;
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top
-			}, 700, 'swing');
-		} 
-		else {
-			e.preventDefault();
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top
-			}, 900, 'swing', function() {
+		// If Target
+		if($target) {
+			// if the Target is a display-only-target
+			if($target.hasClass('only-target')) 
+			{
+				//e.preventDefault();
 				window.location.hash = target;
-			});
+				$('html, body').stop().animate({
+					'scrollTop': $target.offset().top
+				}, 700, 'swing');
+			} 
+			else {
+				e.preventDefault();
+				if($target.offset()) {
+					$('html, body').stop().animate({
+						'scrollTop': $target.offset().top
+					}, 900, 'swing', function() {
+						window.location.hash = target;
+					});
+				}
+			}
 		}
 
 	});

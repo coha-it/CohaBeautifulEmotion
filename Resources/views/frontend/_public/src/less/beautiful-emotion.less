@@ -13,6 +13,9 @@ hr + h4 {
     margin-top: 0.5em;
 }
 
+
+
+
 /* Naked Table */
 .table--naked {
     table {
@@ -61,6 +64,15 @@ hr + h4 {
 
     &.is--fullscreen {
         overflow: hidden;
+    }
+
+
+    &:not(.is--fullscreen) {
+        max-width: 100%;
+    
+        .emotion--container {
+            max-width: 1360px;
+        }
     }
 
     .emotion--container-wrapper-outer {
