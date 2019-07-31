@@ -114,6 +114,12 @@ class CohaBeautifulEmotion extends Plugin
             'helpText' => 'It will simply insert the HTML-Tags to the Emotion-Element Container. Seperated by Spacings.',
             'translatable' => true,            'displayInBackend' => true,            'position' => 100,            'custom' => true,
         ]);
+
+        $this->update();
+    }
+
+    public function update() {
+        // 
     }
 
     // On Activation
