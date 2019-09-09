@@ -6,6 +6,7 @@ use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\Common\Collections\ArrayCollection;
 use Shopware\Components\Plugin;
 use Shopware\Components\Plugin\Context\InstallContext;
+use Shopware\Components\Plugin\Context\UpdateContext;
 use Shopware\Components\Plugin\Context\UninstallContext;
 use Shopware\Components\Theme\LessDefinition;
 use Shopware\Components\Plugin\Context\ActivateContext;
@@ -118,7 +119,7 @@ class CohaBeautifulEmotion extends Plugin
         $this->update();
     }
 
-    public function update() {
+    public function update(UpdateContext $context) {
         // 
     }
 
