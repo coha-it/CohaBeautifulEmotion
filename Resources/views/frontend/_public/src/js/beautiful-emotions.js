@@ -16,7 +16,7 @@ function playVideo() {
 jQuery(document).ready(function ($)
 {
 
-	$(document).on("click", 'a[href*="#"]', function(e) { 
+	$(document).on("click", 'a[href^="#"]', function(e) { 
 		var target = this.hash;
 		var $target = $(target);
 
